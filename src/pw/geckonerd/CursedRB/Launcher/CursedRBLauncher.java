@@ -6,6 +6,9 @@ import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
 public class CursedRBLauncher {
+	public static final String versionRBT = "20230821";
+	public static final String versionCRB = "0.2";
+	
 	public static void main(String[] args) {
 		try {
 			// setup logging

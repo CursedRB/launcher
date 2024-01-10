@@ -97,5 +97,13 @@ public class OptionDialog extends JDialog {
 		
 		spinner.setValue(Integer.parseInt(Config.cfg.getProperty("memory", "512")));
 		textField.setText(Config.cfg.getProperty("javabin", "-"));
+		
+		JLabel lblNewLabel = new JLabel("Версия лаунчера: " + CursedRBLauncher.versionCRB);
+		lblNewLabel.setBounds(12, 128, 426, 15);
+		contentPanel.add(lblNewLabel);
+		
+		JLabel lblRubeta = new JLabel("Совместиамя версия RuBeta лаунчера: " + CursedRBLauncher.versionRBT);
+		lblRubeta.setBounds(12, 155, 426, 15);
+		contentPanel.add(lblRubeta);
 	}
 }

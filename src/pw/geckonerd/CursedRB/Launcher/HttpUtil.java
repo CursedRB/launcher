@@ -16,8 +16,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.stream.Collectors;
 
 public class HttpUtil {
-	public static final String rubetaAPI = "http://client.rubeta.net/launcher.php?b=public&v=20221116&m=";
-	public static final String cursedrbAPI = "http://138.2.143.151:8951/cursedrb/api/";
+	public static final String rubetaAPI = "http://client.rubeta.net/launcher.php?b=public&v=" + CursedRBLauncher.versionRBT + "&m=";
+	public static final String cursedrbAPI = "http://kw.geckonerd.pw/rubeta/v1/";
 	
 	public static AuthResponse login(String user, String pwd) {
 		AuthResponse ar = new AuthResponse();
@@ -116,7 +116,7 @@ public class HttpUtil {
 	}
 	public static byte[] getServers() throws Exception {
 		// TODO: do it the normal way
-		HttpURLConnection conn = cookConnection(cursedrbAPI + "servers");
+		HttpURLConnection conn = cookConnection(cursedrbAPI + "servers/" + CursedRBLauncher.versionCRB + ".dat");
 		InputStream input = conn.getInputStream();
 		byte[] buffer = new byte[4096 * 2];
 		int read = input.read(buffer);

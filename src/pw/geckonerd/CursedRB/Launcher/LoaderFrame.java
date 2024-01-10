@@ -126,13 +126,13 @@ public class LoaderFrame extends JFrame {
 		for(TaskHolder t : getNatives())
 		{
 			CursedRBLauncher.log("Server sent native " + t.libpath + " ver " + t.ver);
-			tasks.add(new LoaderTask(new File(Config.getNatives(), t.libpath), HttpUtil.cursedrbAPI + "download/" + t.libpath, Integer.parseInt(t.ver), t.folder));
+			tasks.add(new LoaderTask(new File(Config.getNatives(), t.libpath), HttpUtil.cursedrbAPI + "natives/" + EnumOS.getOS().toString() + "/" + t.libpath, Integer.parseInt(t.ver), t.folder));
 		}
 		return tasks;
 	}
 	private List<TaskHolder> getLibraries() throws Exception {
 		List<TaskHolder> t = new ArrayList<TaskHolder>();
-		HttpURLConnection con = HttpUtil.cookConnection(HttpUtil.cursedrbAPI + "getlibs");
+		HttpURLConnection con = HttpUtil.cookConnection(HttpUtil.cursedrbAPI + "getlibs/");
 		// read data
 		String jdata = HttpUtil.readData(con);
 		// convert to tasks
@@ -147,7 +147,7 @@ public class LoaderFrame extends JFrame {
 	}
 	private List<TaskHolder> getNatives() throws Exception {
 		List<TaskHolder> t = new ArrayList<TaskHolder>();
-		HttpURLConnection con = HttpUtil.cookConnection(HttpUtil.cursedrbAPI + "getnatives_" + EnumOS.getOS().toString());
+		HttpURLConnection con = HttpUtil.cookConnection(HttpUtil.cursedrbAPI + "natives/" + EnumOS.getOS().toString() + "/get.php");
 		// read data
 		String jdata = HttpUtil.readData(con);
 		// convert to tasks
